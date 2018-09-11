@@ -1,0 +1,36 @@
+﻿@using OnlineShop.Services.IServices
+@model Microsoft.AspNetCore.Identity.IdentityUser
+@inject IShoppingCartService ShoppingCartService
+
+<h2>Payment</h2>
+
+<h4>Pay For Products</h4>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Product Quantity
+        </dt>
+        <dd>
+            @ShoppingCartService.GetCount(Model)
+        </dd>
+
+        <dt>
+            Summary Price
+        </dt>
+        <dd>
+            @ShoppingCartService.GetPriceForSummary(Model)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <form asp-controller="Product" asp-action="Buy" method="post" class="pkClassShoppingCartDisplayInline pkClassShoppingCartMarginRight">
+        <input type="submit" value="I Made A Payment!" class="btn btn-success btn-sm" /> 
+    </form>
+    |
+    <form asp-controller="ShoppingCart" asp-action="Index" method="get" class="pkClassShoppingCartDisplayInline pkClassShoppingCartMarginLeft">
+        <input type="submit" value="I Don't Have Money!" class="btn btn-danger btn-sm" />
+    </form>
+</div>

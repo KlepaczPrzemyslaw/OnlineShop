@@ -1,0 +1,52 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.OrderViewModel>
+
+<h2>Your Products</h2>
+
+<h4>Products List</h4>
+<hr />
+
+@if (string.IsNullOrWhiteSpace((string)TempData["CancelOrderMessage"]) == false)
+{
+    <div class="@TempData["CancelOrderMessageColor"] pkClassBoughtProductMarginTop">
+        @TempData["CancelOrderMessage"]
+        <span class="close" data-dismiss="alert" aria-label="close">&times;</span>
+    </div>
+}
+
+<table class="table table-striped pkClassMY-20">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+            <th>@Html.DisplayNameFor(model => model.BoughtAmount)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.ProductName</td>
+                <td>@order.BoughtAmount</td>
+                <td>@order.Status</td>
+                <td>
+                    @if (order.Status == OrderStatus.New)
+                    {
+                        <form asp-controller="Product" asp-action="Cancel">
+                            <input type="hidden" value="@order.ID" name="ID" />
+                            <input class="btn btn-danger btn-sm" type="submit" value="Cancel Order" />
+                        </form>
+                    }
+                    else
+                    {
+                        <div class="btn-sm">No Action!</div>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a href="/Identity/Account/Manage" class="btn btn-primary">Back to Menu</a>
+</div>

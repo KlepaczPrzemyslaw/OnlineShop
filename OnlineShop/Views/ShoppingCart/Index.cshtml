@@ -1,0 +1,84 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using OnlineShop.Services.IServices
+@model IEnumerable<OnlineShop.ViewModels.ShoppingCartViewModel>
+
+@inject IShoppingCartService ShoppingCartService
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Your Cart</h2>
+
+<h4>Products List</h4>
+<hr />
+
+@if (string.IsNullOrWhiteSpace((string)TempData["ShoppingCartMessage"]) == false)
+{
+    <div class="@TempData["ShoppingCartMessageColor"] pkClassShoppingCartMarginTop">
+        @TempData["ShoppingCartMessage"]
+        <span class="close" data-dismiss="alert" aria-label="close">&times;</span>
+    </div>
+}
+
+<div>
+    <form asp-controller="ShoppingCart" asp-action="ClearCart" method="post">
+        <input type="submit" value="Clear My Cart!" class="btn btn-danger"/>
+    </form>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BoughtAmount)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BoughtAmount)
+                </td>
+                <td>
+                    <form asp-controller="ShoppingCart" asp-action="Delete" method="post">
+                        <input type="hidden" value="@item.ID" name="shoppingCartID"/>
+                        <input type="submit" value="Delete" class="btn btn-danger btn-sm"/>
+                    </form>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="bg-success pkClassShoppingCartWidth">
+                @if (ShoppingCartService.GetCount(await UserManager.GetUserAsync(User)) > 0)
+                {
+                    <form asp-controller="Product" asp-action="Payment" method="post" class="pkClassShoppingCartDisplayInline">
+                        <input type="submit" class="btn btn-success btn-sm" value="That's All! Go To Payment!"/>
+                    </form>
+                }
+                Summary: <span> @ShoppingCartService.GetPriceForSummary(await UserManager.GetUserAsync(User)) $!</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

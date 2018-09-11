@@ -1,0 +1,139 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    overflow-y: scroll;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+/** Bootstrap 4 **/
+
+.btn-light {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+
+/** MY CLASS **/
+
+.pkClassMY-20 {
+    margin: 20px 0;
+}
+
+.pkClassMY-14 {
+    margin: 14px 0;
+}
+
+.pkClassWidth100 {
+    width: 100%;
+}
+
+.pkClassAboutP {
+    margin-bottom: 25px;
+    margin-left: 30px;
+}
+
+.pkClassContactAddress {
+    margin-bottom: 25px;
+    margin-left: 30px;
+}
+
+.pkClassLayoutNavbar {
+    margin-right: 10px;
+}
+
+.pkClassProductDetailsP {
+    margin-bottom: 25px;
+    margin-left: 30px;
+}
+
+.pkClassOrderMarginTop {
+    margin-top: 25px;
+}
+
+.pkClassBoughtProductMarginTop {
+    margin-top: 25px;
+}
+
+.pkClassShoppingCartMarginTop {
+    margin-top: 25px;
+}
+
+.pkClassProductDetailsMarginForH2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.pkClassProductDetailsForH4 {
+    display: inline;
+    margin-left: 15px;
+    margin-right: 12px;
+}
+
+.pkClassProductDetailsForInput {
+    width: 50%;
+    display: inline-block;
+}
+
+.pkClassProductDetailsForButton {
+    display: block;
+    margin-top: 10px;
+}
+
+.pkClassProductDetailsDD {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.pkClassShoppingCartDisplayInline {
+    display: inline;
+    margin-right: 15px;
+}
+
+.pkClassShoppingCartMarginLeft {
+    margin-left: 10px;
+}
+
+.pkClassShoppingCartMarginRight {
+    margin-right: 10px;
+}
+
+.pkClassShoppingCartWidth {
+    width: 360px;
+}
+
+.pkClassImage {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-OnlineShop-50518A97-98FF-40C8-BED2-8401CFAB48BC</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="7.0.1" />
+    <PackageReference Include="jQuery.Validation.Globalize" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Product\Images\01626930-0830-45bb-b2b7-5014e78732db.png" />
+    <None Include="wwwroot\Product\Images\12b8531d-50de-4577-b581-7fe7762c1bc3.png" />
+    <None Include="wwwroot\Product\Images\23038389-062f-4df2-8573-6d5e78178c6a.png" />
+    <None Include="wwwroot\Product\Images\2931e6a4-6c2c-461c-98a0-d501800ca62f.png" />
+    <None Include="wwwroot\Product\Images\55436cd5-1139-46f6-9f63-19bdb93f23e4.png" />
+    <None Include="wwwroot\Product\Images\681a0278-bf43-4a51-99d2-5396fcc386fd.png" />
+    <None Include="wwwroot\Product\Images\81724d35-335e-4556-ae20-ffef1f35f142.png" />
+    <None Include="wwwroot\Product\Images\9122af76-ffd3-434d-8825-2aafb406aac4.png" />
+    <None Include="wwwroot\Product\Images\a56f1f1a-4afd-4e92-92b9-d1b1fba212b5.png" />
+    <None Include="wwwroot\Product\Images\ad104776-5aef-4a7c-b5ac-99124c87edb2.png" />
+    <None Include="wwwroot\Product\Images\b207b637-5dd1-423b-b56e-1107ca0a495c.png" />
+    <None Include="wwwroot\Product\Images\b38de9e6-8fca-4bd0-8a61-997b40e133c9.png" />
+    <None Include="wwwroot\Product\Images\b98a17dd-a59c-40ec-8fb1-b6469b07aa85.png" />
+    <None Include="wwwroot\Product\Images\c571ed64-bb76-4897-8ac7-07871d326e86.png" />
+    <None Include="wwwroot\Product\Images\cd0650d2-ddfd-4632-89e3-a07f532dcbb9.png" />
+    <None Include="wwwroot\Product\Images\de48348f-edea-4614-a525-77349af1b567.png" />
+    <None Include="wwwroot\Product\Images\e0fb5e10-882a-4932-ac4e-3384abf1726f.png" />
+    <None Include="wwwroot\Product\Images\edbbf88f-f180-484f-a2d7-ee4b360987da.png" />
+  </ItemGroup>
+
+</Project>

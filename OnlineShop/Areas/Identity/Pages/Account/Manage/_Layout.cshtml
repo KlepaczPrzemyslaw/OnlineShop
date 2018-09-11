@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+}
+
+<h2>Manage your account</h2>
+
+<div>
+    <h4>Change your account settings</h4>
+    <hr />
+
+    @if (string.IsNullOrWhiteSpace((string)TempData["UserMessage"]) == false)
+    {
+        <div class="@TempData["UserMessageColor"] pkClassMY-20">
+            @TempData["UserMessage"]
+            <span class="close" data-dismiss="alert" aria-label="close">&times;</span>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.ProductViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Home Page</h2>
+<hr />
+
+@if (string.IsNullOrWhiteSpace((string)TempData["ProductMessage"]) == false)
+{
+    <div class="@TempData["ProductMessageColor"]">
+        @TempData["ProductMessage"]
+        <span class="close" data-dismiss="alert" aria-label="close">&times;</span>
+    </div>
+}
+
+@if (User.IsInRole("Admin"))
+{
+    <h4>New Product</h4>
+    <p>
+        <a asp-action="Create" class="btn btn-success">Create New</a>
+    </p>
+    <hr />
+}
+
+<h4>Categories</h4>
+
+<div class="row">
+
+    <div class="col-xs-6 col-sm-3 col-md-2">
+        <div class="thumbnail" style="margin-bottom: 4px">
+            <a asp-controller="Product" asp-action="Index" asp-route-id="" class="btn btn-primary center-block">All</a>
+        </div>
+    </div>
+
+    @foreach (string category in ViewBag.Categories)
+    {
+        <div class="col-xs-6 col-sm-3 col-md-2">
+            <div class="thumbnail" style="margin-bottom: 4px">
+                <a asp-controller="Product" asp-action="Index" asp-route-id="@category" class="btn btn-info center-block">@category</a>
+            </div>
+        </div>
+    }
+</div>
+<hr />
+
+<h4>Products</h4>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <div class="caption">
+                    <img src="@Url.Action(action: "GetProductPhoto", controller: "Product", values: new { id = item.ID })" alt="Product Photo" class="pkClassImage" />
+                    <h3>@item.Name</h3>
+                    <p>@item.Category</p>
+                    <hr />
+                    <p>
+                        Price: @item.Price $
+                    </p>
+                    <p>
+                        Quantity: @item.Quantity pcs.
+                    </p>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-warning btn-sm" style="margin: 5px 5px">Edit</a>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger btn-sm" style="margin: 5px 5px">Delete</a>
+                    }
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.ID" class="btn btn-primary btn-sm" style="margin: 5px 5px">Details / Buy</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

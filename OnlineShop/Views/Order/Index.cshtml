@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OnlineShop.ViewModels.OrderViewModelForAdmin>
+
+<h2>Your Orders</h2>
+
+<h4>Orders List</h4>
+<hr />
+
+@if (string.IsNullOrWhiteSpace((string)TempData["OrderMessage"]) == false)
+{
+    <div class="@TempData["OrderMessageColor"] pkClassOrderMarginTop">
+        @TempData["OrderMessage"]
+        <span class="close" data-dismiss="alert" aria-label="close">&times;</span>
+    </div>
+}
+
+<table class="table table-striped pkClassMY-20">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+            <th>@Html.DisplayNameFor(model => model.BoughtAmount)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstName)</th>
+            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.City)</th>
+            <th>@Html.DisplayNameFor(model => model.PostCode)</th>
+            <th>@Html.DisplayNameFor(model => model.Address)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.ProductName</td>
+                <td>@order.BoughtAmount</td>
+                <td>@order.FirstName</td>
+                <td>@order.LastName</td>
+                <td>@order.City</td>
+                <td>@order.PostCode</td>
+                <td>@order.Address</td>
+                <td>@order.Status</td>
+                <td>
+                    <form asp-controller="Order" asp-action="Send">
+                        <input type="hidden" value="@order.ID" name="id" />
+                        <input type="submit" class="btn btn-success btn-sm" value="Sent To The Customer" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
