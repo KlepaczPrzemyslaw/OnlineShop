@@ -25,12 +25,12 @@
   - Confirm, that the goods was shipped to customer
   
   - Default user account:
-  Login: user@user.com
-  Password: UserPass1.
+  `Login: user@user.com`
+  `Password: UserPass1.`
   
   - Default admin account:
-  Login: admin@admin.com
-  Password: AdminPass1.
+  `Login: admin@admin.com`
+  `Password: AdminPass1.`
   
   - Email Sender doesn't work - because I removed password from appsettings.json
   If You want to check it, please upadte email informations in appsettings.json as example inside 
