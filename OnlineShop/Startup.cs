@@ -25,22 +25,6 @@ namespace OnlineShop
 
 		public IConfiguration Configuration { get; }
 
-		private static async Task CreateRoles(IServiceProvider serviceProvider)
-		{
-			var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-			string[] roleNames = { "Admin", "User" };
-
-			foreach (var roleName in roleNames)
-			{
-				var roleExist = await roleManager.RoleExistsAsync(roleName);
-				if (!roleExist)
-				{
-					//create the roles and seed them to the database: Question 1
-					await roleManager.CreateAsync(new IdentityRole(roleName));
-				}
-			}
-		}
-
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
@@ -68,6 +52,7 @@ namespace OnlineShop
 			services.AddScoped<IOrderService, OrderService>();
 			services.AddScoped<IUserClaimsPrincipalFactory<IdentityUser>, UserClaimsPrincipalFactory<IdentityUser, IdentityRole>>();
 			services.AddScoped<IShoppingCartService, ShoppingCartService>();
+			services.AddScoped<IDbInitializer, DbInitializer>();
 
 			// Transient
 			services.AddTransient<IEmailSender, EmailSender>(i =>
@@ -85,7 +70,8 @@ namespace OnlineShop
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, 
+			IServiceProvider serviceProvider, IDbInitializer dbInitializer)
 		{
 			if (env.IsDevelopment())
 			{
@@ -111,7 +97,7 @@ namespace OnlineShop
 					template: "{controller=Product}/{action=Index}/{id?}");
 			});
 
-			CreateRoles(serviceProvider).Wait();
+			dbInitializer.Initialize();
 		}
 	}
 }
