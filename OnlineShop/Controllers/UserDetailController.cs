@@ -113,7 +113,6 @@ namespace OnlineShop.Controllers
 			if (ModelState.IsValid)
 			{
 				var myUser = await GetUser();
-
 				if (_context.UserDetailModel.FirstOrDefault(x => x.ID == myUser.Id) != null)
 					return Redirect("/UserDetail/Edit");
 

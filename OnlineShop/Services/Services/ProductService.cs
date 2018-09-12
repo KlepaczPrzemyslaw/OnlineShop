@@ -54,8 +54,7 @@ namespace OnlineShop.Services.Services
 			try
 			{
 				ProductModel productModel = _mapper.Map<ProductModel>(productFromView);
-				// Mapper always gave the same Guid !?
-				productModel.PhotoID = Guid.NewGuid();
+				productModel.PhotoID = Guid.NewGuid(); // Mapper always gave the same Guid !?
 				await _context.ProductModel.AddAsync(productModel);
 				
 				string fileToDelete = $@"{Directory.GetCurrentDirectory()}\wwwroot\Product\Images\{productModel.PhotoID}.png";
