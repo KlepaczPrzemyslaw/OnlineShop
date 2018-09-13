@@ -72,7 +72,7 @@ namespace OnlineShop.Context
 
 				if (adminSuccess.Succeeded)
 				{
-					await userManager.AddToRoleAsync(await userManager.FindByNameAsync(userLogin), "Admin");
+					await userManager.AddToRoleAsync(await userManager.FindByNameAsync(userLogin), "User");
 				}
 			}
 		}
