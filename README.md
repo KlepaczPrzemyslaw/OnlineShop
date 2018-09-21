@@ -31,4 +31,4 @@
   Login: `admin@admin.com` ,
   Password: `AdminPass1.`
   
-  - Email Sender doesn't work - because I removed password from appsettings.json. If You want to check it, please upadte email    informations in appsettings.json as example inside 
+  4) Email Sender doesn't work - because I removed password from appsettings.json. If You want to check it, please upadte email    informations in appsettings.json as example inside 
