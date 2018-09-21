@@ -4,19 +4,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShop.Models;
-using OnlineShop.Services.IServices;
+using OnlineShop.Services.Interfaces;
 
 namespace OnlineShop.Controllers
 {
-	///////////////////////////
-	/// For Admin and User 
-	///////////////////////////
+	//// For Admin and User ////
 	[Authorize] 
 	public class ShoppingCartController : Controller
 	{
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Constructor 
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Constructor ////
 
 		private readonly IShoppingCartService _shoppingCartService;
 		private readonly UserManager<IdentityUser> _userManager;
@@ -27,9 +23,7 @@ namespace OnlineShop.Controllers
 			this._userManager = userManager;
 		}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Private Methods 
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Private Methods ////
 
 		private async Task<IdentityUser> GetUser()
 		{
@@ -77,10 +71,8 @@ namespace OnlineShop.Controllers
 					return Redirect("/ShoppingCart/Index");
 			}
 		}
-
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Pages 
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		
+		//// Pages ////
 
 		[HttpGet]
 		public async Task<IActionResult> Index()

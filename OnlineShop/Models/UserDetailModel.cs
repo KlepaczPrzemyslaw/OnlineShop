@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
-using OnlineShop.Models.IModels;
+using OnlineShop.Models.Interfaces;
 
 namespace OnlineShop.Models
 {

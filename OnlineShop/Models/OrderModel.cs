@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using OnlineShop.Models.IModels;
+using OnlineShop.Models.Interfaces;
 
 namespace OnlineShop.Models
 {

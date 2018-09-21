@@ -3,7 +3,7 @@ using AutoMapper;
 using OnlineShop.Models;
 using OnlineShop.ViewModels;
 
-namespace OnlineShop.Mapper
+namespace OnlineShop.Infrastructure
 {
 	public static class AutoMapperConfig
 	{

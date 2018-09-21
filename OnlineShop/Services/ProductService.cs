@@ -10,16 +10,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Context;
 using OnlineShop.Models;
-using OnlineShop.Services.IServices;
+using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 
-namespace OnlineShop.Services.Services
+namespace OnlineShop.Services
 {
 	public class ProductService : IProductService
 	{
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Constructor 
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Constructor ////
 
 		private readonly ApplicationDbContext _context;
 		private readonly IMapper _mapper;
@@ -30,9 +28,7 @@ namespace OnlineShop.Services.Services
 			this._mapper = mapper;
 		}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Methods
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Methods ////
 
 		public async Task<ProductDetailsViewModel> GetAsync(Guid id)
 		{

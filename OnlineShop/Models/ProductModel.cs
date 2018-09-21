@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using OnlineShop.Models.IModels;
+using OnlineShop.Models.Interfaces;
 
 namespace OnlineShop.Models
 {

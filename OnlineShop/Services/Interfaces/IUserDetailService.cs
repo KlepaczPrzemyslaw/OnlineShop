@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using OnlineShop.Models;
 using OnlineShop.ViewModels;
 
-namespace OnlineShop.Services.IServices
+namespace OnlineShop.Services.Interfaces
 {
 	public interface IUserDetailService
 	{

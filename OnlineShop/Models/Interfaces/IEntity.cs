@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OnlineShop.Models.IModels
+namespace OnlineShop.Models.Interfaces
 {
 	public interface IEntity
 	{

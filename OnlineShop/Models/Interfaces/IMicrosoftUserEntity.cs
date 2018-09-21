@@ -1,4 +1,4 @@
-﻿namespace OnlineShop.Models.IModels
+﻿namespace OnlineShop.Models.Interfaces
 {
 	public interface IMicrosoftUserEntity
 	{

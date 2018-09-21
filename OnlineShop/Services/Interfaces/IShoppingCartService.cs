@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using OnlineShop.Models;
 using OnlineShop.ViewModels;
 
-namespace OnlineShop.Services.IServices
+namespace OnlineShop.Services.Interfaces
 {
 	public interface IShoppingCartService
 	{

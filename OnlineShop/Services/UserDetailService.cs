@@ -8,16 +8,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Context;
 using OnlineShop.Models;
-using OnlineShop.Services.IServices;
+using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 
-namespace OnlineShop.Services.Services
+namespace OnlineShop.Services
 {
 	public class UserDetailService : IUserDetailService
 	{
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Constructor 
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Constructor ////
 
 		private readonly ApplicationDbContext _context;
 		private readonly IMapper _mapper;
@@ -28,9 +26,7 @@ namespace OnlineShop.Services.Services
 			this._mapper = mapper;
 		}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Methods
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Methods ////
 
 		public async Task<IEnumerable<OrderViewModel>> ShowMyOrders(IdentityUser user)
 		{

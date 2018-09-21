@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace OnlineShop.Services.Services
+namespace OnlineShop.Services
 {
 	public class EmailSender : IEmailSender
 	{

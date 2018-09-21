@@ -8,16 +8,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Context;
 using OnlineShop.Models;
-using OnlineShop.Services.IServices;
+using OnlineShop.Services.Interfaces;
 using OnlineShop.ViewModels;
 
-namespace OnlineShop.Services.Services
+namespace OnlineShop.Services
 {
 	public class ShoppingCartService : IShoppingCartService
 	{
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Constructor 
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Constructor ////
 
 		private readonly ApplicationDbContext _context;
 		private readonly IMapper _mapper;
@@ -28,9 +26,7 @@ namespace OnlineShop.Services.Services
 			this._mapper = mapper;
 		}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Other Methods For Views Too
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Other Methods For Views Too ////
 
 		public int GetCount(IdentityUser user)
 		{
@@ -42,9 +38,7 @@ namespace OnlineShop.Services.Services
 			return _context.ShoppingCartModel.Where(x => x.UserDetailModelID == user.Id).Sum(x => (x.Price * x.BoughtAmount));
 		}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////
-		/// Methods
-		/////////////////////////////////////////////////////////////////////////////////////////////
+		//// Methods ////
 
 		public async Task<InternalStatus> AddProduct(Guid productID, IdentityUser user, int boughtAmount)
 		{

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
@@ -10,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using OnlineShop.Context;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using OnlineShop.Mapper;
-using OnlineShop.Services.IServices;
-using OnlineShop.Services.Services;
+using OnlineShop.Infrastructure;
+using OnlineShop.Services.Interfaces;
+using OnlineShop.Services;
 
 namespace OnlineShop
 {

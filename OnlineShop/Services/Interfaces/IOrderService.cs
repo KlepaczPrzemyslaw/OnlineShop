@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using OnlineShop.Models;
 using OnlineShop.ViewModels;
 
-namespace OnlineShop.Services.IServices
+namespace OnlineShop.Services.Interfaces
 {
 	public interface IOrderService
 	{

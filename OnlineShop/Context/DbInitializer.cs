@@ -16,9 +16,7 @@ namespace OnlineShop.Context
 			_serviceProvider = serviceProvider;
 		}
 
-		///////////////////////
-		/// Initialize
-		///////////////////////
+		//// Initialize ////
 
 		public async void Initialize()
 		{
