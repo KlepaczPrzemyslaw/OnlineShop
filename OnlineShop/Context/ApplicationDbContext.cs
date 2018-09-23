@@ -13,8 +13,6 @@ namespace OnlineShop.Context
 		public DbSet<OrderModel> OrderModel { get; set; }
 		public DbSet<UserDetailModel> UserDetailModel { get; set; }
 		public DbSet<ShoppingCartModel> ShoppingCartModel { get; set; }
-		public DbSet<ViewModels.OrderViewModelForAdmin> MyOrders { get; set; }
-		public DbSet<ViewModels.ShoppingCartViewModel> MyCart { get; set; }
 
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 			: base(options)
