@@ -1,4 +1,4 @@
-# OnlineShop_ENG
+# OnlineShop_ENG [C# - MVC (.NET Core 2.0)]
 - Project Date: 27-08-2018 to 12-09-2018
 - Description: Project after 6 weeks of study C# at CodersLab
 - Short Description: A simple ASP.NET Core MVC application with SQL database.
